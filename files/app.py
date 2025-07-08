@@ -11,7 +11,6 @@ app = Flask(__name__)
 # Configure the database however you see fit, you are welcome to use a config file or environment variable
 DB_PATH = os.environ.get("DB_PATH", "./items_db.sqlite")
 
-
 def init_database() -> None:
     """Initialize the SQLite database with the required schema and seed data."""
     # Ensure the directory exists
@@ -41,6 +40,10 @@ def init_database() -> None:
     conn.commit()
     conn.close()
 
+
+if __name__ != "__main__" and not os.path.exists(os.environ.get("DB_PATH", "items_db.sqlite")):
+    print("Initializing database with the required schema and seed data.")
+    init_database()
 
 def get_db_connection() -> sqlite3.Connection | None:
     """Establishes and returns a database connection."""
