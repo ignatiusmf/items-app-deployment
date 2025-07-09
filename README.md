@@ -1,17 +1,18 @@
 # DevOps-Exercise
-Create a script that will deploy a premade application and make is publically accessible on a clean ubuntu server.
+Create a script that will deploy a premade application and make is publically accessible on a clean ubuntu server.  
 
+## INSTRUCTIONS
+clone https://github.com/ignatiusmf/items-app-deployment.git  
+cd items-app-deployment/files  
+chmod +x setup.sh  
+./setup.sh  
 
-## Things
-clone in home directory
-chmod +x setup.sh
-run setup.sh with "./setup.sh"
-
-You can set the following parameters:
-PORT
-DBLOCATION
-
+### Tunable parameters:
+Database Location (as DB_PATH, through environment variable to setup script)   
 
 ## Assumptions
-Changes to app.py won't immediately take effect. It will chanage the app.py used to serve the appplication, but a "system restart items-app" will be required. Also, depending on the change, you would need to update you venv
-If the DB path changes, you won't delete the old sqlite db, could cause clutter
+Assumes app.py won't change  
+If the DB path changes, old sqlite db won't be deleted, could cause clutter  
+
+## Please note
+A modification was made to the app.py file 
